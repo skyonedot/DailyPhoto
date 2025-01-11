@@ -86,5 +86,3 @@ class DailyPhotoCapture:
 
 if __name__ == "__main__":
     DailyPhotoCapture().run()
-    #home_dir = str(Path.home())
-    # print(home_dir)

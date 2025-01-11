@@ -9,7 +9,7 @@
     <array>
         <string>/bin/bash</string>
         <string>-c</string>
-        <string>source ${HOME}/DailyPhoto/dailyPhotoVenv/bin/activate && python3 ${HOME}/DailyPhoto/main.py</string>
+        <string>source ${HOME}/.virtualenvs/DailyPhoto/bin/activate && python3 ${HOME}/Applications/DailyPhoto/main.py</string>
     </array>
     
     <key>EnvironmentVariables</key>
@@ -17,11 +17,9 @@
         <key>HOME</key>
         <string>${HOME}</string>
         <key>PATH</key>
-        <!-- 注意点1. 确保ffmpeg在如下Path中 -->
         <string>/opt/homebrew/bin</string>
     </dict>
 
-    <!-- 简化定时设置为关键时间点 -->
     <key>StartCalendarInterval</key>
     <array>
         <dict><key>Hour</key><integer>10</integer><key>Minute</key><integer>0</integer></dict>
@@ -35,8 +33,8 @@
     <true/>
 
     <key>StandardOutPath</key>
-    <string>${Home}/DailyPhoto/dailyPhoto.log</string>
+    <string>${Home}/Applications/DailyPhoto/dailyPhoto.log</string>
     <key>StandardErrorPath</key>
-    <string>${Home}/DailyPhoto/dailyPhoto.err</string>
+    <string>${Home}/Applications/DailyPhoto/dailyPhoto.err</string>
 </dict>
 </plist> 

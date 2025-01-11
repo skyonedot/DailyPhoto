@@ -1,38 +1,61 @@
+# Daily Photo Capture
 
-本项目是利用电脑前摄像头拍摄每日无意识时的工作状态，即在电脑前工作时会拍摄一张照片。
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.6%2B-blue)
+![Platform](https://img.shields.io/badge/platform-macOS-lightgrey)
 
-注意事项
-- 本人的Python版本 3.13.1
-- 摄像头的权限赋权给ffmpeg、terminal
-- 确保安装了ffmpeg，并且其路径在 `dailyPhoto.plist` 文件下的 `EnvironmentVariables-->PATH` 中
-- 目前只有macos版本， 如果windows需要的伙伴可以自行参考开发。
+Daily Photo Capture is an automated tool that captures photos through your computer's webcam at specified times throughout the day. It uses face detection to ensure that only photos containing people are saved, making it perfect for tracking your daily work patterns or creating time-lapse records of your workday.
+
+## Features
+
+- 🎯 Automated photo capture at scheduled times
+- 👤 Face detection to ensure meaningful captures
+- 🗑️ Automatic cleanup of photos without faces
+- 📅 Organized storage with date-based naming
+- 🔒 Privacy-focused (all data stored locally)
+
+## Prerequisites
+
+- macOS
+- Python 3.13 or higher
+- ffmpeg (for photo capture), and it's path contains in `dailyPhoto.plist` --> `EnvironmentVariables-->PATH` 
+- Webcam access permissions for Terminal and ffmpeg
 
 
 
+
+## Installation
+
+1. Clone the repository:
+```bash
+cd $HOME/Applications
+git clone https://github.com/yourusername/DailyPhoto.git
+cd dailyPhoto
 ```
-cd $HOME
-git clone xxx
-cd ./DailyPhoto
-cp dailyPhoto.plist ${HOME}/Library/LaunchAgents/
 
+2. Create and activate virtual environment:
+```bash
+python3 -m venv ${HOME}/.virtualenvs/DailyPhoto
+source ${HOME}/.virtualenvs/DailyPhoto/bin/activate
+```
 
-
-python3 -m venv dailyPhotoVenv
-source ./dailyPhotoVenv/bin/activate
+3. Install dependencies:
+```bash
 pip3 install -r requirements.txt
 ```
 
 
-```
+4. Install and load the LaunchAgent:
+```bash
+cp dailyPhoto.plist ${HOME}/Library/LaunchAgents/
 launchctl load ${HOME}/Library/LaunchAgents/dailyPhoto.plist
 ```
 
 
 
+## How It Works
 
-大体讲解
-- 每天的10、14、16、20、23点运行，可在 `dailyPhoto.plist文件的StartCalendarInterval字段` 中根据实际情况自行调整运行时间
-- 若上述时间段某一次拍摄到了人脸，则不会继续拍摄
-- 具体逻辑 请参考 `main.py` 文件
-
-
+- The program runs at scheduled times (10:00, 14:00, 16:00, 20:00, and 23:00 by default). You can adjust these times in the `StartCalendarInterval` field of the `dailyPhoto.plist` file.
+- If a face is detected in any photo during these time slots, the program will skip the remaining captures for that day.
+- For detailed implementation logic, please refer to the `main.py` file.
+- All successfully captured photos are saved in the `$HOME/Pictures/DailyPhoto/Photos` directory, organized by date.
