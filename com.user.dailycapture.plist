@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>skyonedot.dailycapture</string>
+    <string>com.user.dailycapture</string>
     
     <key>ProgramArguments</key>
     <array>
