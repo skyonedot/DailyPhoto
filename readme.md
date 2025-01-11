@@ -1,7 +1,7 @@
 # Daily Photo Capture
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
-![Python](https://img.shields.io/badge/python-3.6%2B-blue)
+![Python](https://img.shields.io/badge/python-3.13%2B-blue)
 ![Platform](https://img.shields.io/badge/platform-macOS-lightgrey)
 
 Daily Photo Capture is an automated tool that captures photos through your computer's webcam at specified times throughout the day. It uses face detection to ensure that only photos containing people are saved, making it perfect for tracking your daily work patterns or creating time-lapse records of your workday.
@@ -29,8 +29,8 @@ Daily Photo Capture is an automated tool that captures photos through your compu
 1. Clone the repository:
 ```bash
 cd $HOME/Applications
-git clone https://github.com/yourusername/DailyPhoto.git
-cd dailyPhoto
+git clone https://github.com/skyonedot/DailyPhoto.git
+cd DailyPhoto
 ```
 
 2. Create and activate virtual environment:
@@ -59,3 +59,4 @@ launchctl load ${HOME}/Library/LaunchAgents/dailyPhoto.plist
 - If a face is detected in any photo during these time slots, the program will skip the remaining captures for that day.
 - For detailed implementation logic, please refer to the `main.py` file.
 - All successfully captured photos are saved in the `$HOME/Pictures/DailyPhoto/Photos` directory, organized by date.
+- Both output logs and error logs are located in the `${HOME}/Pictures/DailyPhoto/` directory.

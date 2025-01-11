@@ -33,8 +33,8 @@
     <true/>
 
     <key>StandardOutPath</key>
-    <string>${Home}/Applications/DailyPhoto/dailyPhoto.log</string>
+    <string>${Home}/Pictures/DailyPhoto/dailyPhoto.log</string>
     <key>StandardErrorPath</key>
-    <string>${Home}/Applications/DailyPhoto/dailyPhoto.err</string>
+    <string>${Home}/Pictures/DailyPhoto/dailyPhoto.err</string>
 </dict>
 </plist> 
