@@ -53,10 +53,12 @@ launchctl load ${HOME}/Library/LaunchAgents/dailyPhoto.plist
 
 
 
-## How It Works
+## Key Points
 
 - The program runs at scheduled times (10:00, 14:00, 16:00, 20:00, and 23:00 by default). You can adjust these times in the `StartCalendarInterval` field of the `dailyPhoto.plist` file.
 - If a face is detected in any photo during these time slots, the program will skip the remaining captures for that day.
 - For detailed implementation logic, please refer to the `main.py` file.
 - All successfully captured photos are saved in the `$HOME/Pictures/DailyPhoto/Photos` directory, organized by date.
 - Both output logs and error logs are located in the `${HOME}/Pictures/DailyPhoto/` directory.
+- Currently, this program only runs on Macos. For Windows users, you're welcome to develop and customize your own version.
+- For any issues or questions, please open an issue on GitHub. Pull requests are always welcome!
