@@ -9,7 +9,7 @@
     <array>
         <string>/bin/bash</string>
         <string>-c</string>
-        <string>source /Users/skyone/Pictures/DailyPhoto/PY/path/to/venv/bin/activate && python3 /Users/skyone/Pictures/DailyPhoto/PY/main.py</string>
+        <string>source ${HOME}/DailyPhoto/dailyPhotoVenv/bin/activate && python3 ${HOME}/DailyPhoto/main.py</string>
     </array>
     
     <key>EnvironmentVariables</key>
@@ -35,8 +35,8 @@
     <true/>
 
     <key>StandardOutPath</key>
-    <string>/Users/skyone/Pictures/DailyPhoto/dailyPhoto.log</string>
+    <string>${Home}/DailyPhoto/dailyPhoto.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/skyone/Pictures/DailyPhoto/dailyPhoto.err</string>
+    <string>${Home}/DailyPhoto/dailyPhoto.err</string>
 </dict>
 </plist> 
