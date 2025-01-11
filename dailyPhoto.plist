@@ -3,7 +3,7 @@
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.user.dailycapture</string>
+    <string>skyonedot.dailycapture</string>
     
     <key>ProgramArguments</key>
     <array>
@@ -14,8 +14,11 @@
     
     <key>EnvironmentVariables</key>
     <dict>
+        <key>HOME</key>
+        <string>${HOME}</string>
         <key>PATH</key>
-        <string>/opt/homebrew/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin</string>
+        <!-- 注意点1. 确保ffmpeg在如下Path中 -->
+        <string>/opt/homebrew/bin</string>
     </dict>
 
     <!-- 简化定时设置为关键时间点 -->
