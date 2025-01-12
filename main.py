@@ -5,6 +5,8 @@ import os
 from datetime import datetime
 import dlib
 from pathlib import Path
+import subprocess
+import re
 
 class DailyPhotoCapture:
     """
@@ -27,6 +29,11 @@ class DailyPhotoCapture:
         self.current_date = datetime.now().strftime("%Y-%m-%d")
         self.photo_path = os.path.join(self.photos_dir, f"{self.current_date}.png")
         self.log_path = os.path.join(self.base_dir, "daily_capture.log")
+        
+        # Add screenshot directory
+        self.screenshots_dir = os.path.join(self.base_dir, "Screenshots")
+        os.makedirs(self.screenshots_dir, exist_ok=True)
+
 
     def capture_photo(self):
         """
@@ -62,11 +69,37 @@ class DailyPhotoCapture:
             print(f"Face detection error: {e}")
             return False
 
+    def get_display_count(self):
+        """
+        Get the number of connected displays
+        """
+        command = ["system_profiler", "SPDisplaysDataType"]
+        output = subprocess.check_output(command, text=True)
+        return len(re.findall(r"Resolution", output))
+
+    def capture_screenshots(self):
+        """
+        Capture screenshots from all connected displays and save as PDF
+        Returns:
+            list: Paths to captured screenshot files
+        """
+        timestamp = datetime.now().strftime("%Y%m%d%H%M%S")
+        display_count = self.get_display_count()
+        capture_files = []
+        
+        for i in range(1, display_count + 1):
+            file_path = os.path.join(self.screenshots_dir, f"screen_{self.current_date}_{i}.pdf")
+            capture_files.append(file_path)
+        
+        capture_command = ["screencapture", "-x", "-t", "pdf"] + capture_files
+        subprocess.run(capture_command, check=True)
+        return capture_files
+
     def run(self):
         """
         Main execution flow:
         1. Check if photo already exists for today
-        2. Capture new photo if needed
+        2. Capture new photo and screenshots if needed
         3. Verify face presence
         4. Keep or delete photo based on face detection
         """
@@ -77,11 +110,21 @@ class DailyPhotoCapture:
         print(f"Capturing new photo: {self.photo_path}")
         self.capture_photo()
         
+        print("Capturing screenshots...")
+        try:
+            screenshot_files = self.capture_screenshots()
+            print(f"Screenshots saved: {len(screenshot_files)} displays captured")
+        except Exception as e:
+            print(f"Error capturing screenshots: {e}")
+        
         if self.detect_face():
             print("Face detected - photo saved successfully")
         else:
             print("No face detected - deleting photo")
             os.remove(self.photo_path)
+            for screenshot in screenshot_files:
+                if os.path.exists(screenshot):
+                    os.remove(screenshot)
 
 
 if __name__ == "__main__":
