@@ -4,7 +4,7 @@
 ![Python](https://img.shields.io/badge/python-3.13%2B-blue)
 ![Platform](https://img.shields.io/badge/platform-macOS-lightgrey)
 
-Daily Photo Capture is an automated tool that captures photos through your computer's webcam at specified times throughout the day. It uses face detection to ensure that only photos containing people are saved, making it perfect for tracking your daily work patterns or creating time-lapse records of your workday.
+Daily Photo Capture is an automated tool that captures both webcam photos and screenshots at specified times throughout the day. It uses face detection to ensure that only photos containing people are saved, making it perfect for tracking your daily work patterns or creating time-lapse records of your workday.
 
 ## Features
 
