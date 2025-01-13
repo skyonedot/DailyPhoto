@@ -9,15 +9,13 @@
     <array>
         <string>/bin/bash</string>
         <string>-c</string>
-        <string>source ${HOME}/.virtualenvs/DailyPhoto/bin/activate && python3 ${HOME}/Applications/DailyPhoto/main.py</string>
+        <string>source ${PATH}/.virtualenvs/DailyPhoto/bin/activate && python3 ${HOME}/Applications/DailyPhoto/main.py</string>
     </array>
     
     <key>EnvironmentVariables</key>
     <dict>
-        <key>HOME</key>
-        <string>${HOME}</string>
         <key>PATH</key>
-        <string>/opt/homebrew/bin</string>
+        <string>/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/homebrew/bin</string>
     </dict>
 
     <key>StartCalendarInterval</key>
@@ -33,115 +31,8 @@
     <true/>
 
     <key>StandardOutPath</key>
-    <string>${Home}/Pictures/DailyPhoto/dailyPhoto.log</string>
+    <string>${PATH}/Pictures/DailyPhoto/dailyPhoto.log</string>
     <key>StandardErrorPath</key>
-    <string>${Home}/Pictures/DailyPhoto/dailyPhoto.err</string>
+    <string>${PATH}/Pictures/DailyPhoto/dailyPhoto.err</string>
 </dict>
 </plist> 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.user.dailycapture</string>
-
-
-    <!-- Command to run -->
-    <key>ProgramArguments</key>
-    <array>
-        <string>/bin/bash</string>
-        <string>-c</string>
-        <string>
-        source /Users/skyone/Pictures/DailyPhoto/PY/path/to/venv/bin/activate && python3 /Users/skyone/Pictures/DailyPhoto/PY/main.py
-        </string>
-    </array>
-    
-    <!-- <key>ProgramArguments</key>
-    <array>
-    <string>/Users/skyone/Pictures/Bash/dailyPhoto</string>
-    </array> -->
-
-    <!-- ffmpeg需要指定路径， 不然识别不到命令 -->
-    <key>EnvironmentVariables</key>
-    <dict>
-        <key>PATH</key>
-        <string>/opt/homebrew/bin</string>
-    </dict>
-
-
-    <!-- <key>StartInterval</key> -->
-    <!-- <integer>60</integer> -->
-    <!-- <integer>3600</integer> -->
-    
-    <key>StartCalendarInterval</key>
-    <array>
-        <dict>
-            <key>Hour</key>
-            <integer>10</integer>
-            <key>Minute</key>
-            <integer>0</integer>
-        </dict>
-        <dict>
-            <key>Hour</key>
-            <integer>11</integer>
-            <key>Minute</key>
-            <integer>0</integer>
-        </dict>
-        <dict>
-            <key>Hour</key>
-            <integer>16</integer>
-            <key>Minute</key>
-            <integer>0</integer>
-        </dict>
-        <dict>
-            <key>Hour</key>
-            <integer>14</integer>
-            <key>Minute</key>
-            <integer>0</integer>
-        </dict>
-        <dict>
-            <key>Hour</key>
-            <integer>20</integer>
-            <key>Minute</key>
-            <integer>0</integer>
-        </dict>
-        <dict>
-            <key>Hour</key>
-            <integer>22</integer>
-            <key>Minute</key>
-            <integer>0</integer>
-        </dict>
-                <dict>
-            <key>Hour</key>
-            <integer>23</integer>
-            <key>Minute</key>
-            <integer>0</integer>
-        </dict>
-    </array>
-
-    <key>RunAtLoad</key>
-    <true/>
-
-
-    <key>StandardOutPath</key>
-    <string>/Users/skyone/Pictures/DailyPhoto/dailyPhoto.log</string>
-    <key>StandardErrorPath</key>
-    <string>/Users/skyone/Pictures/DailyPhoto/dailyPhoto.err</string>
-
-</dict>
-</plist> -->

@@ -20,6 +20,7 @@ Daily Photo Capture is an automated tool that captures photos through your compu
 - Python 3.13 or higher
 - ffmpeg (for photo capture), and it's path contains in `dailyPhoto.plist` --> `EnvironmentVariables-->PATH` 
 - Webcam access permissions for Terminal and ffmpeg
+- change ${PATH} in `dailyPhoto.plist` as your reality. 🚩🚩🚩🚩
 
 
 
@@ -28,15 +29,15 @@ Daily Photo Capture is an automated tool that captures photos through your compu
 
 1. Clone the repository:
 ```bash
-cd $HOME/Applications
+cd ~/Applications
 git clone https://github.com/skyonedot/DailyPhoto.git
 cd DailyPhoto
 ```
 
 2. Create and activate virtual environment:
 ```bash
-python3 -m venv ${HOME}/.virtualenvs/DailyPhoto
-source ${HOME}/.virtualenvs/DailyPhoto/bin/activate
+python3 -m venv ~/.virtualenvs/DailyPhoto
+source ~/.virtualenvs/DailyPhoto/bin/activate
 ```
 
 3. Install dependencies:
@@ -47,8 +48,8 @@ pip3 install -r requirements.txt
 
 4. Install and load the LaunchAgent:
 ```bash
-cp dailyPhoto.plist ${HOME}/Library/LaunchAgents/
-launchctl load ${HOME}/Library/LaunchAgents/dailyPhoto.plist
+cp dailyPhoto.plist ~/Library/LaunchAgents/
+launchctl load ~/Library/LaunchAgents/dailyPhoto.plist
 ```
 
 
@@ -58,7 +59,8 @@ launchctl load ${HOME}/Library/LaunchAgents/dailyPhoto.plist
 - The program runs at scheduled times (10:00, 14:00, 16:00, 20:00, and 23:00 by default). You can adjust these times in the `StartCalendarInterval` field of the `dailyPhoto.plist` file.
 - If a face is detected in any photo during these time slots, the program will skip the remaining captures for that day.
 - For detailed implementation logic, please refer to the `main.py` file.
-- All successfully captured photos are saved in the `$HOME/Pictures/DailyPhoto/Photos` directory, organized by date.
-- Both output logs and error logs are located in the `${HOME}/Pictures/DailyPhoto/` directory.
+- All successfully captured photos are saved in the `~/Pictures/DailyPhoto/Photos` directory, organized by date.
+- All successfully screen shot are saved in the `~/Pictures/DailyPhoto/Photos` directory, organized by date.
+- Both output logs and error logs are located in the `~/Pictures/DailyPhoto/Screenshots` directory.
 - Currently, this program only runs on Macos. For Windows users, you're welcome to develop and customize your own version.
 - For any issues or questions, please open an issue on GitHub. Pull requests are always welcome!
